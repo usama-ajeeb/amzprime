@@ -1,0 +1,40 @@
+/* #swiper-color .swiper-slide {
+  position: relative;
+  max-height: 500px;
+} */
+
+#swiper-color > .swiper-wrapper {
+  background: #000;
+  overflow-y: visible;
+
+  /* height: 300px; */
+}
+
+#swiper-color > .swiper-wrapper > .swiper-slide {
+  /* position: absolute; */
+}
+
+#swiper-color .swiper-button-next {
+  color: white;
+  height: 200px;
+  width: 50px;
+  background: #000000;
+  opacity: 0.3;
+  top: auto;
+}
+#swiper-color .swiper-button-next:hover {
+  opacity: 0.7;
+}
+
+#swiper-color .swiper-button-prev {
+  color: white;
+  height: 200px;
+  width: 70px;
+  background: #000000;
+  opacity: 0.3;
+  top: auto;
+}
+
+#swiper-color .swiper-button-prev:hover {
+  opacity: 0.7;
+}

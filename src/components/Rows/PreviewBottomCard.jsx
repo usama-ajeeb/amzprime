@@ -48,7 +48,7 @@ function PreviewBottomCard({ img, video, title, ratting, type, id }) {
             <FaVolumeMute
               size={30}
               color='white'
-              className=' absolute top-7 right-8'
+              className=' absolute  top-7 right-8'
             />
           ) : (
             <FaVolumeUp

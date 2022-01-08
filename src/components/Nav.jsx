@@ -40,13 +40,13 @@ function Nav({ SetToggler, toggler }) {
           (toggler && SetToggler(false)) ||
           (mobileNavToggler && setMobileNavToggler(false))
         }
-        className='fixed top-0 justify-between w-screen flex items-center bg-secondary py-5 px-16 z-40'
+        className='fixed top-0 justify-between w-screen flex items-center bg-secondary py-5 px-3 lg:px-16 z-40'
       >
         {/* Left */}
 
         <div className='flex items-center gap-x-6'>
-          <div>
-            <img src='/logo.svg' alt='' className='h-[40px] w-[111px]' />
+          <div className='relative'>
+            <img src='/logo.svg' alt='' className=' h-[40px] w-[111px] ' />
           </div>
           {/* On Small screen */}
           <div
