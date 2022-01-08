@@ -1,21 +1,30 @@
 import { useState } from 'react'
 import ImgSlider from './components/ImgSlider'
 import Nav from './components/Nav'
+import PreviewBottomCard from './components/Rows/PreviewBottomCard'
 import Row from './components/Rows/Row'
 import Tooltip from './components/Tooltip'
-import VideoPlayer from './components/VideoPlayer'
-
+import { Previews } from './HeaderImages'
+import { Carousel } from '@trendyol-js/react-carousel'
+import { MdOutlineArrowForwardIos, MdArrowBackIos } from 'react-icons/md'
 function App() {
-  const backgroundStyle = {
-    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-url(https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/f0f36490fec517be423a1788405fee0ea397884f02bf8df7843a5c9f56b663b7._RI_V_TTW_SX1500_BL40_FMJPG_.jpg)`,
-
-    backgroundSize: 'cover',
-    height: '50vh',
-  }
+  const RightArrow = (
+    <MdOutlineArrowForwardIos
+      className='   flex h-40  cursor-pointer mt-14  lg:mt-40'
+      size={40}
+      color='white'
+    />
+  )
+  const LeftArrow = (
+    <MdArrowBackIos
+      className='   flex h-40 hover:bg-transparent cursor-pointer mt-14  lg:mt-40 '
+      size={40}
+      color='white'
+    />
+  )
   const [toggler, SetToggler] = useState(false)
   return (
-    <div className='flex flex-col bg-[#0F171E] w-screen overflow-hidden'>
+    <div className=' flex flex-col bg-[#0F171E]'>
       <header>
         <Nav SetToggler={SetToggler} toggler={toggler} />
         {toggler && <Tooltip />}
@@ -23,23 +32,40 @@ url(https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/f0f36490fe
       </header>
       <main>
         {/* movie genres*/}
-        <section className='  container ml-auto mr-auto'>
+        <section className='  mt-10 z-0'>
           <Row />
         </section>
-        <section className=' container ml-auto mr-auto my-8'>
-          <div className='flex items-center text-white text-2xl gap-x-2 pb-5'>
-            <img
-              src='https://m.media-amazon.com/images/G/01/digital/video/global/prime-logo-large-v4._CB509553088_.png'
-              alt=''
-              className=' h-6'
-            />
-            <h1>Previews for you</h1>
+        <section className=' '>
+          <div className='flex flex-col ml-10'>
+            <div className='flex items-center text-white text-2xl gap-x-2 pb-5'>
+              <img
+                src='https://m.media-amazon.com/images/G/01/digital/video/global/prime-logo-large-v4._CB509553088_.png'
+                alt=''
+                className=' h-6'
+              />
+              <h1>Previews for you</h1>
+            </div>
           </div>
-          <div className=' flex flex-col lg:flex-row py-32'>
-            <div className=' h-80 w-[700px]' style={backgroundStyle}></div>
-            {/* Video component */}
-            <VideoPlayer />
-          </div>
+          {/* video */}
+          <Carousel
+            show={1}
+            slide={1}
+            rightArrow={RightArrow}
+            leftArrow={LeftArrow}
+            swiping={true}
+            className='  overflow-visible top-48  z-10 flex '
+          >
+            {Previews.map((i) => (
+              <PreviewBottomCard
+                video={i.video}
+                img={i.img}
+                ratting={i.rating}
+                title={i.title}
+                id={i.id}
+                type={i.type}
+              />
+            ))}
+          </Carousel>
         </section>
 
         {/* See more button with loading spinner */}
@@ -47,7 +73,7 @@ url(https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/f0f36490fe
           <button className='text-xl font-semibold '>Load more</button>
         </section>
       </main>
-      <footer>
+      <footer className=''>
         <div className='flex flex-col items-center gap-y-3'>
           <img src='/logo.svg' alt='' className='h-[40px] w-[111px]' />
           <div className=' flex gap-x-3 text-sky-400'>

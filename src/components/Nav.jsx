@@ -4,7 +4,7 @@ import { RiArrowDownSFill, RiArrowUpSFill } from 'react-icons/ri'
 import MobileNav from './MobileNav'
 
 function Nav({ SetToggler, toggler }) {
-  const [searchVisible, setSearchVisible] = useState(false)
+  const [searchVisible, setSearchVisible] = useState(true)
   const [mobileNavToggler, setMobileNavToggler] = useState(false)
   const navRef = useRef(true)
 
@@ -40,7 +40,7 @@ function Nav({ SetToggler, toggler }) {
           (toggler && SetToggler(false)) ||
           (mobileNavToggler && setMobileNavToggler(false))
         }
-        className='fixed justify-between w-screen flex items-center bg-secondary py-5 px-16 z-40'
+        className='fixed top-0 justify-between w-screen flex items-center bg-secondary py-5 px-16 z-40'
       >
         {/* Left */}
 

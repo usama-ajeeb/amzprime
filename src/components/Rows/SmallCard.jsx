@@ -2,7 +2,7 @@ import React from 'react'
 
 function SmallCard({ id, url, lang }) {
   return (
-    <div id={id} className='relative w-screen '>
+    <div id={id} className='relative  w-[130px] h-[130px]  '>
       <img
         className=' w-[130px] h-[130px] rounded-md absolute'
         src={url}
